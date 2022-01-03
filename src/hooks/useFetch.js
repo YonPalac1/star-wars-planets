@@ -31,7 +31,7 @@ function useFetch(url) {
                     setState({
                         loading: false,
                         error: null,
-                        data
+                        data: data.results
                     })
 
                 }

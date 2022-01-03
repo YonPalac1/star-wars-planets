@@ -1,0 +1,96 @@
+.header {
+	width: 100%;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    .header-logo {
+        padding: 20px 0;
+        width: 310px;
+    }
+}
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    form {
+        display: flex;
+        justify-content: center;
+        width: 310px;
+        margin: auto;
+        input {
+            padding: 10px 13px;
+            border-radius: 25px 0 0 25px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            border-right-style: none;
+            box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 .5rem #ffe600,
+            0 0 0.8rem #ffe600,
+            inset 0 0 1.3rem #ffe600;
+            &:focus {
+                box-shadow: 0 0 .2rem #fff,
+                    0 0 .2rem #fff,
+                    0 0 2rem #ffe600,
+                    0 0 0.8rem #ffe600,
+                    0 0 2rem #ffe600,
+                    inset 0 0 1.3rem #ffe600;
+            }
+        }
+        .btn-search {
+            border-radius: 0 25px 25px 0;
+            background: none;
+            color: #fff;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 8px 10px;
+            border-left-style: none;
+            box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 .5rem #ffe600,
+            0 0 0.8rem #ffe600,
+            inset 0 0 1.3rem #ffe600;
+                &:hover {
+                    color: yellow;
+                    box-shadow: 0 0 .2rem #fff,
+                    0 0 .2rem #fff,
+                    0 0 2rem #ffe600,
+                    0 0 0.8rem #ffe600,
+                    0 0 2rem #ffe600,
+                    inset 0 0 1.3rem #ffe600;
+                }
+        }
+    }
+}
+
+@media screen and (min-width:530px){
+    .header {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .header-logo {
+            padding: 20px 0;
+            width: 520px;
+        }
+    }
+  }
+  @media screen and (min-width:720px){
+    .header {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .header-logo {
+            padding: 20px 0;
+            width: 610px;
+        }
+    }
+  }

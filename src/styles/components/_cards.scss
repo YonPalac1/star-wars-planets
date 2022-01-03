@@ -1,0 +1,78 @@
+.loadingIco {
+  width: 150px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  padding: 10px;
+  .c-card.neonCard {
+    border: 0.2rem solid #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 .5rem #ffe600,
+              0 0 0.8rem #ffe600,
+              inset 0 0 1.3rem #ffe600;
+    color: white;
+    padding: 20px;
+    cursor: pointer; 
+    &:hover {
+          box-shadow: 0 0 .2rem #fff,
+                0 0 .2rem #fff,
+                0 0 2rem #ffe600,
+                0 0 0.8rem #ffe600,
+                0 0 2rem #ffe600,
+                inset 0 0 1.3rem #ffe600;
+    }
+    .c-card__title {
+      color: #ffe600;
+    }
+    .c-card__body {
+      margin: 10px 0; 
+      .c-card__info {
+        margin: 5px 0;
+      }
+    }
+    .c-card__footer {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin: 10px 0;
+      button {
+        padding: 8px 10px;
+        background: none;
+        border: 1px solid yellow;
+        color: #fff;
+        cursor: pointer; 
+        &:hover {
+					color: #b5ac00; 
+					background:#fff300;
+				}
+      }
+    }
+  }
+} 
+@media screen and (min-width: 580px){
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 10px;
+    grid-gap: 10px;
+  }
+}
+@media screen and (min-width: 720px){
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 10px;
+    grid-gap: 10px;
+  }
+}
+@media screen and (min-width: 1024px){
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 10px;
+    grid-gap: 10px;
+  }
+}
