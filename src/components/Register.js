@@ -1,36 +1,81 @@
-import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { startRegisterWithEmailPassName } from '../actions/auth';
+import useForm from '../hooks/useForm';
+import Navbar from '../components/Navbar'
 
 export const Register = () => {
-    return (
-        <div className='container'>
-            <form  className='login-form'>
-                <h2 className='neon'>Register</h2>
+
+    const dispatch = useDispatch()
+
+
+    const [formValues, handleInputChange] = useForm({
+        name : '',
+        email : '',
+        password : '',
+        password2 : ''
+    })
+
+    const {name, email, password, password2} = formValues;
+
+    const handleRegister = e => {
+        e.preventDefault();
+        dispatch(startRegisterWithEmailPassName(email,password,name))
+    }
+
+
+       return (
+        <>
+        <Navbar />
+            <form className='login-form' onSubmit={handleRegister}> 
+            <h3 className='neon'>Registro</h3>
                 <label>Ingresar nombre</label>
-                <input 
+                <input
                     type="text"
-                    className='i-form'
+                    placeholder="Name"
                     name="name"
-                ></input>
-                <label>Ingresar Email</label>
-                <input 
+                    className="i-form"
+                    autoComplete='off'
+                    value={name}
+                    onChange={handleInputChange}
+                />
+                <label>Ingresar email</label>
+                <input
                     type="text"
-                    className='i-form'
+                    placeholder="Email"
                     name="email"
-                ></input>
-                <label>Ingresar Password</label>
-                <input 
-                    type="text"
-                    className='i-form'
+                    className="i-form"
+                    autoComplete='off'
+                    value={email}
+                    onChange={handleInputChange}
+                />
+                <label>Ingresar contraseña</label>
+                <input
+                    type="password"
+                    placeholder="Password"
                     name="password"
-                ></input>
-                <label>Reingresar Password</label>
-                <input 
-                    type="text"
-                    className='i-form'
+                    className="i-form"
+                    onChange={handleInputChange}
+                />
+                <label>Confirmar contraseña</label>
+                <input
+                    type="password"
+                    placeholder="Confirm password"
                     name="password2"
-                ></input>
-                <button>Ingresar</button>
+                    className="i-form"
+                    onChange={handleInputChange}
+                />
+                <button
+                    type="submit"
+                    className="buttons__btn buttons__btn-primary buttons__btn-block mb-5"
+                >
+                    Register
+
+                </button>
+                <label>
+                    <Link to="/login">¿Estás registrado/a?</Link>
+                </label>
             </form>
-        </div>
+        </>
     )
 }

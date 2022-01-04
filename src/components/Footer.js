@@ -2,8 +2,10 @@ import React from 'react'
 
 export const Footer = () => {
     return (
-        <footer className="container-fluid position-fixed">
-            <p className="text-center">Challenge 2021 | by Jonatan Palacios</p>
+        <footer className="container">
+            <a className="text-center" href="">
+            Challenge 2022 | by Jonatan Palacios
+            </a>
         </footer>
     )
 }

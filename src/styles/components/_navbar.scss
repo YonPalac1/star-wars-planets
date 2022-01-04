@@ -1,6 +1,7 @@
 nav {
 	border-bottom: 1px solid yellow;
-	position: relative;
+	position: fixed;
+	width: 100%;
 	@media(max-width: 480px){
 		display: flex;
 		justify-content: space-between;
@@ -20,10 +21,10 @@ nav {
 			height:2px;
 			width:20px;
 			margin:2px;
-			background:#7c7cde;
+			background:#000000;
 		}
 		&.active {
-			background:#7c7cde;
+			background:black;
 			span {
 				background:yellow;
 			}
@@ -31,12 +32,12 @@ nav {
 		&:hover {
 			background:#e1e1e1;
 			span {
-				background:#7c7cde;
+				background:yellow;
 			}
 			&.active {
-				background:#7c7cde;
+				background:yellow;
 				span {
-					background:white;
+					background:black;
 				}
 			}
 		}
@@ -61,29 +62,31 @@ nav {
 			position: absolute;
 			left:0;right:0;top:100%;
 			flex-direction: column;
-			background-color: #f1f1f1;
+			background: yellow;
 			margin-left:-100%;
 			&.active {
 				opacity: 1;
 				max-height: 500px;
 				right:0;
 				margin-left:0%;
-				background-color: #e1e1e1;
 				li {
 					display: block;;
 					a {
-						display: block;;
+						display: block;
 					}
 				}
 			}
 		}
 		li {
 			display: inline-block;
-			a {
+			a, button {
 				display: inline-block;
 				color: yellow;
 				text-decoration: none;
 				padding:0.5em 1em;
+				background: none;
+				border: none;
+				cursor: pointer;
 				&:hover {
 					color: #b5ac00; 
 					background:#fff300;
@@ -96,18 +99,101 @@ nav {
 		margin: 0;
 		padding:0;
 		transition: ease 1s all;
+		@media(max-width:480px){
+			opacity: 0;
+			max-height: 0px;
+			overflow: hidden;
+			visibility: none;
+			display:flex;
+			position: absolute;
+			left:0;right:0;top:100%;
+			flex-direction: column;
+			background: yellow;
+			margin-left:-100%;
+			&.active {
+				opacity: 1;
+				max-height: 500px;
+				right:0;
+				margin-left:0%;
+				li {
+					display: block;;
+					a {
+						display: block;
+					}
+				}
+			}
+		}
 		li {
 			display: inline-block;
-			a {
+			a, button {
 				display: inline-block;
-				color:yellow;
+				color: yellow;
 				text-decoration: none;
 				padding:0.5em 1em;
+				background: none;
+				border: none;
+				cursor: pointer;
 				&:hover {
 					color: #b5ac00; 
 					background:#fff300;
 				}
 			}
+			b {
+				padding:1em 1em;
+				color: yellow;
+			}
 		}
 	}
+}
+.alert {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,.8);
+	.mensaje {
+		color: #fff;
+		border-radius: 1rem;
+    	box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 .5rem #ffe600,
+              0 0 0.8rem #ffe600,
+              inset 0 0 1.3rem #ffe600;
+		flex-direction: column;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 30px 20px;
+	}
+	h3 {
+		padding: 30px;
+		a {
+			color: lightblue;
+		}
+	}
+	.buttons {
+		button {
+			padding: 8px 10px;
+			border: none;
+			box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem rgb(146, 241, 229),
+              0 0 .5rem #00ccff,
+              0 0 0.8rem #66dbff,
+              inset 0 0 1.3rem #00ffd5;
+			background: none;
+			color: #fff;
+			cursor: pointer;
+			margin: 20px;
+		}
+		a {
+			color: #fff;
+		}
+	}
+}
+.alert.active {
+	display: flex;
 }

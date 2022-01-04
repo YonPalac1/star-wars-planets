@@ -1,9 +1,9 @@
 import React,{useState, useEffect, useRef} from 'react';
-import PlanetsList from './PlanetsList'
 
 function Search () {
 	const [planets, setPlanets] = useState([]);
 	const [keyword, setKeyword] = useState('');
+    const [loading, setLoading] = useState(true);
 	let inputSearch = useRef();
 
 	const url = `https://swapi.dev/api/planets/?search=${keyword}`
@@ -15,6 +15,7 @@ function Search () {
             .then( data => {
                 if(!data.Error){
                     setPlanets(data.results)
+                    setLoading(false)
                     console.log(data.results)
                 } else {				
                     setPlanets([])
@@ -40,7 +41,15 @@ function Search () {
             </form>
         </div>
         <div className="container grid-container">
-            {
+            {loading 
+            ?
+                (
+                    <div className="text-center">
+                        <img className='loadingIco' src={loadingIco} />
+                    </div>
+                )
+                :
+                
 				planets.length > 0 && planets.map((planet, i) => {
 					return (                
                         <article className="c-card neonCard grid-item" key={i}>

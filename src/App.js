@@ -1,15 +1,15 @@
-import React from 'react';
-import { Footer } from './components/Footer';
-import AppRouter from './routes/AppRouter';
+import { AppRouter } from "./routes/AppRouter";
+import {Provider} from "react-redux";
+import {store} from './store'
 import './styles/styles.scss'
+import { Footer } from "./components/Footer";
 
 function App() {
- 
   return (
-    <>
-    <AppRouter />
-    <Footer />
-    </>
+    <Provider store={store}>
+      <AppRouter/>
+      <Footer />
+    </Provider>
   );
 }
 
