@@ -1,5 +1,8 @@
 # star wars planets (Challenge)
+<img src="https://github.com/YonPalac1/star-wars-planets/blob/master/public/img/img-header.png">
 
+## Vista previa
+<img src="https://github.com/YonPalac1/star-wars-planets/blob/master/public/img/vp.png">
 <hr>
 # Getting Started with Create React App
 
