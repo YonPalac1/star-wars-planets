@@ -44,7 +44,7 @@ function Search () {
             {loading 
             ?
                 (
-                    <div className="text-center">
+                    <div className="text-center loadIco">
                         <img className='loadingIco' src={loadingIco} />
                     </div>
                 )
@@ -77,7 +77,6 @@ function Search () {
                                     </p>
                                 </div>
                             
-                                    <hr></hr>
                                 <footer className="c-card__footer">
                                     <button>
                                         <i className='fas fa-star'></i>  

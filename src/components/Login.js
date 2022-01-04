@@ -1,11 +1,10 @@
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {startGoogleLogin, startLoginEmailPass} from '../actions/auth';
+import { useDispatch } from 'react-redux';
 import useForm from '../hooks/useForm';
+import {startGoogleLogin, startLoginEmailPass} from '../actions/auth';
 import Navbar from '../components/Navbar'
 
 export const Login = () => {
-
     const dispatch = useDispatch();
 
     const [formValue, handleInputChange] = useForm({

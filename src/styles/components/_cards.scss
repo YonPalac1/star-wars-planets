@@ -1,5 +1,12 @@
+.loadIco {
+  width: 1024px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .loadingIco {
   width: 150px;
+  margin: auto;
 }
 .grid-container {
   display: grid;

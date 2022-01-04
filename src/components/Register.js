@@ -5,9 +5,7 @@ import useForm from '../hooks/useForm';
 import Navbar from '../components/Navbar'
 
 export const Register = () => {
-
     const dispatch = useDispatch()
-
 
     const [formValues, handleInputChange] = useForm({
         name : '',
@@ -15,7 +13,6 @@ export const Register = () => {
         password : '',
         password2 : ''
     })
-
     const {name, email, password, password2} = formValues;
 
     const handleRegister = e => {
@@ -23,8 +20,7 @@ export const Register = () => {
         dispatch(startRegisterWithEmailPassName(email,password,name))
     }
 
-
-       return (
+    return (
         <>
         <Navbar />
             <form className='login-form' onSubmit={handleRegister}> 

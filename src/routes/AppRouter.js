@@ -1,37 +1,28 @@
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { useDispatch } from 'react-redux'
 import { login } from '../actions/auth'
+
+import Favorites from '../components/Favorites'
 import Home from '../components/Home'
 import { Login } from '../components/Login'
-import Favorites from '../components/Favorites'
-import { AuthRoutes } from './AuthRoutes'
 import { Register } from '../components/Register'
 
 export const AppRouter = () => {
-
     const [isLogged, setIsLogged] = useState(false);
     const dispatch = useDispatch()
 
-
     useEffect(() => {
-
         onAuthStateChanged(getAuth(), user => {
-
             if (user?.uid) {
-
                 setIsLogged(true)
                 dispatch(login(user.uid, user.displayName));
-
             } else {
                 setIsLogged(false)
             }
         })
-
     }, [dispatch,setIsLogged]);
-
-
     return (
         <BrowserRouter>
             <div>
@@ -41,7 +32,6 @@ export const AppRouter = () => {
                         element={
                             <Home />
                         }
-
                     />
                     <Route
                         path="/login"
@@ -50,7 +40,6 @@ export const AppRouter = () => {
                                 ? <Home />
                                 : <Login />
                         }
-
                     />
                     <Route
                         path="/register"
@@ -59,7 +48,6 @@ export const AppRouter = () => {
                                 ? <Home />
                                 : <Register />
                         }
-
                     />
                     <Route
                         path="/favorites"

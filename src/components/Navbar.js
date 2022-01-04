@@ -6,9 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../actions/auth';
 
 export default function Navbar() {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
     const [isLogged, setIsLogged] = useState(false)
-    const {name} = useSelector(state => state.auth);
+    const {name} = useSelector(state => state.auth)
+
     const handleLogout = () => {
         dispatch(startLogout())
     }
@@ -31,6 +32,7 @@ export default function Navbar() {
     const showAlert = () => {
         document.querySelector('.alert').classList.toggle('active')
     }
+
     return (
         <>
         <nav>
@@ -45,13 +47,12 @@ export default function Navbar() {
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        {
-                        isLogged ?
-                        <Link to="/favorites">Favoritos</Link>
-                        : 
-                        <button onClick={showAlert}>Favoritos</button>
-                        }
+                        <button onClick={handleLogout}>
+                            Salir
+                        </button>
                     </li>
+                    
+                    
                 </ul>
                 <ul className="menu">
                     <div>
@@ -67,22 +68,26 @@ export default function Navbar() {
                         </>
                         :
                         <>
+                        <li>
+                            <b>{name}</b>
+                        </li>
                             <li>
-                                <b>{name}</b>
+                                {
+                                isLogged ?
+                                <Link to="/favorites">Favoritos</Link>
+                                : 
+                                <button onClick={showAlert}>Favoritos</button>
+                                }
                             </li>
-                            <li>
-                                <button
-                                    onClick={handleLogout}
-                                    >
-                                Salir
-                                </button>
-                            </li>
+                            
                         </>
                         }
                     </div>
                 </ul>
             </div>
         </nav>
+
+        {/* Modal */}
         <div className='alert'>
             <div className='mensaje' >
                 <h3>Debes 
