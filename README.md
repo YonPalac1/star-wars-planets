@@ -14,7 +14,9 @@ La lista de planetas debe permitir también guardar uno o más planetas como fav
 - Material UI
 - Axios
 <hr></hr>
+
 ### Preview
+
 <img src="https://github.com/YonPalac1/star-wars-planets/blob/master/src/assets/img/vp.png">
 
 
