@@ -16,7 +16,7 @@ La lista de planetas debe permitir también guardar uno o más planetas como fav
 <hr></hr>
 
 ### Preview
-
+- <a href="https://vigorous-meninsky-264e9a.netlify.app/">Site deployed</a>
 <img src="https://github.com/YonPalac1/star-wars-planets/blob/master/src/assets/img/vp.png">
 
 
