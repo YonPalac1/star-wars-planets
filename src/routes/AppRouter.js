@@ -1,61 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
-import { useDispatch } from 'react-redux'
-import { login } from '../actions/auth'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import ContainerCards from '../components/ContainerCards'
+import Favorite from '../components/Favorite'
+import Navbar from '../components/Navbar'
+import {Header} from '../components/Header'
+import React from 'react'
+import SearchResult from '../components/SearchResult';
 
-import Favorites from '../components/Favorites'
-import Home from '../components/Home'
-import { Login } from '../components/Login'
-import { Register } from '../components/Register'
-
-export const AppRouter = () => {
-    const [isLogged, setIsLogged] = useState(false);
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        onAuthStateChanged(getAuth(), user => {
-            if (user?.uid) {
-                setIsLogged(true)
-                dispatch(login(user.uid, user.displayName));
-            } else {
-                setIsLogged(false)
-            }
-        })
-    }, [dispatch,setIsLogged]);
+const AppRouter = () => {
     return (
-        <BrowserRouter>
-            <div>
-                <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <Home />
-                        }
-                    />
-                    <Route
-                        path="/login"
-                        element={
-                            isLogged
-                                ? <Home />
-                                : <Login />
-                        }
-                    />
-                    <Route
-                        path="/register"
-                        element={
-                            isLogged
-                                ? <Home />
-                                : <Register />
-                        }
-                    />
-                    <Route
-                        path="/favorites"
-                        element={<Favorites />}
-                    />
-                </Routes>
-            </div>
-
-        </BrowserRouter>
+        <Router>
+        <Navbar/>
+        <Header/>
+            <Routes>
+                <Route path='/' element ={<ContainerCards /> }/>
+                <Route path='/favorite' element ={<Favorite /> }/>
+                <Route path='/resultados' element ={<SearchResult /> }/>
+            </Routes>
+        </Router>
     )
 }
+
+export default AppRouter

@@ -1,107 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
-import { Link } from 'react-router-dom'
-import { login } from '../actions/auth'
-import { useDispatch, useSelector } from 'react-redux';
-import { startLogout } from '../actions/auth';
+import React from 'react'
+import styled from 'styled-components'
 
-export default function Navbar() {
-    const dispatch = useDispatch()
-    const [isLogged, setIsLogged] = useState(false)
-    const {name} = useSelector(state => state.auth)
+import {Link} from 'react-router-dom';
 
-    const handleLogout = () => {
-        dispatch(startLogout())
+const Container = styled.div`
+    background: black;
+    border-bottom: 1px solid yellow;
+    display:flex;
+    justify-content:space-around;
+    position: fixed;
+    width: 100%;
+    `
+    const Enlace = styled(Link)`
+    color: yellow;
+    font-size:20px;
+    padding: 8px 10px;
+    text-decoration:none;
+    &:hover {
+        box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 .5rem #ffe600,
+            0 0 0.8rem #ffe600,
+            inset 0 0 1.3rem #ffe600;
     }
-    
-    useEffect(() => {
-        onAuthStateChanged(getAuth(), user => {
-            if (user?.uid) {
-                setIsLogged(true)
-                dispatch(login(user.uid, user.displayName));
-            } else {
-                setIsLogged(false)
-            }
-        })
-    }, [dispatch,setIsLogged]);
-    
-    const toggleMobileMenu = () => {
-        document.querySelector('#menu').classList.toggle('active')
-        document.querySelector('.mobile-bar').classList.toggle('active')
-    }
-    const showAlert = () => {
-        document.querySelector('.alert').classList.toggle('active')
-    }
+` 
 
+const ParteDeAbajo = () => {
     return (
-        <>
-        <nav>
-            <div className="mobile-bar" onClick={toggleMobileMenu}> 
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div>
-                <ul id="menu">
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <button onClick={handleLogout}>
-                            Salir
-                        </button>
-                    </li>
-                    
-                    
-                </ul>
-                <ul className="menu">
-                    <div>
-                        {
-                            !isLogged ?
-                        <>
-                            <li>
-                                <Link to="/register">Register</Link>
-                            </li>
-                            <li>
-                                <Link to="/login">Log in</Link>
-                            </li>
-                        </>
-                        :
-                        <>
-                        <li>
-                            <b>{name}</b>
-                        </li>
-                            <li>
-                                {
-                                isLogged ?
-                                <Link to="/favorites">Favoritos</Link>
-                                : 
-                                <button onClick={showAlert}>Favoritos</button>
-                                }
-                            </li>
-                            
-                        </>
-                        }
-                    </div>
-                </ul>
-            </div>
-        </nav>
-
-        {/* Modal */}
-        <div className='alert'>
-            <div className='mensaje' >
-                <h3>Debes 
-                    <Link to="/Login"> ingresar </Link>
-                    para ver tus favoritos</h3>
-                <div className='buttons'>
-                    <button className='btn'>
-                        <Link to="/Login">ingresar</Link>
-                    </button>                
-                    <button onClick={showAlert} className='btn'>Cancelar</button>
-                </div>
-            </div>
-        </div>
-        
-        </>
+        <Container>
+            <Enlace to='/'>Planetas </Enlace>
+            <Enlace to="/favorite">Favoritos</Enlace>
+        </Container>
     )
 }
+
+export default ParteDeAbajo
