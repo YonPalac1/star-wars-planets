@@ -44,7 +44,7 @@ const ContainerCard = styled.div`
 const ContainerCards = () => {
     return (
         <Fragment>
-            <ContainerCard className='animate__animated animate__zoomIn' >
+            <ContainerCard className='animate__animated animate__fadeInUp' >
                 <Cards />     
             </ContainerCard>
             <Pages/>
