@@ -11,10 +11,10 @@ La lista de planetas debe permitir también guardar uno o más planetas como fav
 <img src="https://github.com/YonPalac1/star-wars-planets/blob/master/src/assets/img/vp.png">
 
 ### Tools 
-- React-router-dom
 - Redux
 - Redux thunk
 - Styled Components
+- Material UI
 - Axios
 <hr>
 
