@@ -1,15 +1,23 @@
 # star wars planets (Challenge)
 <img src="https://github.com/YonPalac1/star-wars-planets/blob/master/public/favicon.png" style="width: 250px; text-align:center;">
 
-### Propuesta del challenge
+### Challenge
  <p>El challenge consiste en desarrollar una app con React integrándola con Redux o graphql, que permita (usando el API REST de Star Wars [1] para usar con redux o [3] para graphql) listar todos los planetas en una lista con un paginado de a 10 planetas con las siguientes columnas en las cards: nombre, diametro, clima y terreno.
 La vista debe permitir buscar por nombre de planeta usando un input y un botón cada vez que se hace un click en buscar o apretar enter.
 La lista de planetas debe permitir también guardar uno o más planetas como favoritos en el estado y por último crear una vista para ver los favoritos que hemos guardado.
 </p>
 
-### Vista previa
+### Preview
 <img src="https://github.com/YonPalac1/star-wars-planets/blob/master/src/assets/img/vp.png">
+
+### Tools 
+- React-router-dom
+- Redux
+- Redux thunk
+- Styled Components
+- Axios
 <hr>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
