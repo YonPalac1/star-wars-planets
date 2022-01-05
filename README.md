@@ -6,16 +6,16 @@
 La vista debe permitir buscar por nombre de planeta usando un input y un botón cada vez que se hace un click en buscar o apretar enter.
 La lista de planetas debe permitir también guardar uno o más planetas como favoritos en el estado y por último crear una vista para ver los favoritos que hemos guardado.
 </p>
-
-### Preview
-<img src="https://github.com/YonPalac1/star-wars-planets/blob/master/src/assets/img/vp.png">
-
 ### Tools 
 - Redux
 - Redux thunk
 - Styled Components
 - Material UI
 - Axios
+### Preview
+<img src="https://github.com/YonPalac1/star-wars-planets/blob/master/src/assets/img/vp.png">
+
+
 <hr>
 
 # Getting Started with Create React App
