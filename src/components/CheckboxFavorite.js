@@ -11,9 +11,8 @@ const useStyles = makeStyles(() => ({
     '&.MuiButtonBase-root': {
       color: 'yellow',
     '&.Mui-checked':{
-        color: 'yellow'
+      color: 'yellow'
       }
-      
     },
   }
 }));
@@ -21,9 +20,14 @@ export default function IconCheckboxes({item}) {
 
   const dispatch = useDispatch()
   const styles = useStyles()
+
   return (
     <div>
-      <Checkbox id='input' onClick={()=>dispatch(addToFavorite(item))}  className={styles.root} icon={<FavoriteBorder/>} checkedIcon={<Favorite />} />
+      <Checkbox id='input' 
+              onClick={() => dispatch(addToFavorite(item))}  
+              className={styles.root} 
+              icon={<FavoriteBorder/>} 
+              checkedIcon={<Favorite />} />
       
     </div>
   );

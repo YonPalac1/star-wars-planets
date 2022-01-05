@@ -127,43 +127,40 @@ const ButtonDeleteFavorite = styled.button`
     const favorites = useSelector((store) => store.planetas.favorite);
 
     useEffect(() => {
-        
         console.log(favorites)
     }, [favorites])
 
     return (
         <Fragment>
             <ContainerCard>
-       {
-           favorites.length !== 0 ? favorites.map(item =>(
-            <Container key={item.name}>
-             <div>
-                <PName>{item.name}</PName>
-             </div>
-             <hr></hr>
-             <div className='diameter'>
-                <PValues><b>Diameter: </b> {item.diameter}</PValues>
-             </div>
-             <div className='climate'>
-                <PValues><b>Climate: </b> {item.climate}</PValues>
-             </div>
-             <div className='terrain'>
-                <ValuesTerrain><b>Terrain: </b> {item.terrain}</ValuesTerrain>
-             </div>
-             <hr></hr>
-            <div className='footer'>
-                <Footer>
-                    <ButtonDeleteFavorite onClick={()=> dispatch(deleteFavorite(item))}><i className='fas fa-trash'></i></ButtonDeleteFavorite>
-                </Footer>
-            </div>
-         </Container>
-             ))
-           :
-           <MessageNoFavorites>No hay Favoritos</MessageNoFavorites>
-           
-
-        }
-        </ContainerCard>
+            {
+                favorites.length !== 0 ? favorites.map(item =>(
+                    <Container key={item.name}>
+                    <div>
+                        <PName>{item.name}</PName>
+                    </div>
+                    <hr></hr>
+                    <div className='diameter'>
+                        <PValues><b>Diameter: </b> {item.diameter}</PValues>
+                    </div>
+                    <div className='climate'>
+                        <PValues><b>Climate: </b> {item.climate}</PValues>
+                    </div>
+                    <div className='terrain'>
+                        <ValuesTerrain><b>Terrain: </b> {item.terrain}</ValuesTerrain>
+                    </div>
+                    <hr></hr>
+                    <div className='footer'>
+                        <Footer>
+                            <ButtonDeleteFavorite onClick={()=> dispatch(deleteFavorite(item))}><i className='fas fa-trash'></i></ButtonDeleteFavorite>
+                        </Footer>
+                    </div>
+                </Container>
+                    ))
+                :
+                <MessageNoFavorites>No hay Favoritos</MessageNoFavorites>
+            }
+            </ContainerCard>
         </Fragment>
     )
 }

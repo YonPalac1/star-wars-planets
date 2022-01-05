@@ -59,27 +59,32 @@ const Button = styled.button`
 `
 
 const Search = () => {
-    
     const [{keywords}, handleInputChange, reset] = useForm({
         keywords: "",
     })
-    
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleSearch = (e) =>{
-    e.preventDefault()
-    if(keywords !== ''){
-        dispatch(searchResultados(keywords));
-        reset()   
+        e.preventDefault()
+        if(keywords !== ''){
+            dispatch(searchResultados(keywords));
+            reset()   
+        }
+        navigate("/resultados")
     }
-    navigate("/resultados")
-}
+
     return (
         <SearchBar>
             <form onSubmit={handleSearch}>
-                <Input type='search' name="keywords" onChange={handleInputChange} value={keywords} />
-                <Button type='submit' ><i className="fas fa-search"></i></Button>
+                <Input type='search' 
+                        name="keywords" 
+                        onChange={handleInputChange} 
+                        value={keywords} />
+                
+                <Button type='submit' >
+                    <i className="fas fa-search"></i>
+                </Button>
             </form>
         </SearchBar>
     )

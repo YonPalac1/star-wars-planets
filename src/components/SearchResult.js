@@ -101,40 +101,36 @@ const SearchResult = () => {
     const resultados = useSelector((store) =>store.planetas.searchResult)
 
     return (
-
         <Fragment>
-        <ContainerCard>
-        {resultados.length === 0 ? <MessageNoPlanet>No tenemos un planeta con ese nombre</MessageNoPlanet> :
-        resultados.map(item =>(
-        <Container key={item.name}>
-        <div className='name'>
-                <PName>{item.name}</PName>
-            </div>
-            <hr></hr>
-            <div className='diameter'>
-                <PValues><b>Diameter: </b> {item.diameter}</PValues>
-            </div>
-            <div className='climate'>
-                <PValues><b>Climate: </b> {item.climate}</PValues>
-            </div>
-            <div className='terrain'>
-                <ValuesTerrain><b>Terrain: </b> {item.terrain}</ValuesTerrain>
-            </div>
-            <hr></hr>
-            <div className='footer'>
-                <Footer>
-                <CheckboxFavorite setFavorito={setFavorito} favorito={favorito} item={item} />
-                </Footer>
-            </div>
-            
-    </Container>
-
-        ))
-         
-    }
-   </ContainerCard>
-   </Fragment>
-
+            <ContainerCard>
+            {resultados.length === 0 ? <MessageNoPlanet>No tenemos un planeta con ese nombre</MessageNoPlanet> :
+            resultados.map(item =>(
+                <Container key={item.name}>
+                <div className='name'>
+                        <PName>{item.name}</PName>
+                    </div>
+                    <hr></hr>
+                    <div className='diameter'>
+                        <PValues><b>Diameter: </b> {item.diameter}</PValues>
+                    </div>
+                    <div className='climate'>
+                        <PValues><b>Climate: </b> {item.climate}</PValues>
+                    </div>
+                    <div className='terrain'>
+                        <ValuesTerrain><b>Terrain: </b> {item.terrain}</ValuesTerrain>
+                    </div>
+                    <hr></hr>
+                    <div className='footer'>
+                        <Footer>
+                        <CheckboxFavorite setFavorito={setFavorito} favorito={favorito} item={item} />
+                        </Footer>
+                    </div>
+                    
+                </Container>
+            ))
+            }
+            </ContainerCard>
+        </Fragment>
     )
 }
 

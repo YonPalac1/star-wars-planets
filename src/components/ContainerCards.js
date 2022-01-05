@@ -2,7 +2,6 @@ import React from 'react'
 import Cards from './Cards'
 import styled from 'styled-components'
 import Pages from './Pages'
-
 import 'animate.css'
 
 const Fragment = styled.div`
@@ -45,11 +44,10 @@ const ContainerCard = styled.div`
 const ContainerCards = () => {
     return (
         <Fragment>
-        <ContainerCard className='animate__animated animate__zoomIn' >
-            <Cards />     
-       </ContainerCard>
-        <Pages/>
-        
+            <ContainerCard className='animate__animated animate__zoomIn' >
+                <Cards />     
+            </ContainerCard>
+            <Pages/>
         </Fragment>
     )
 }

@@ -42,17 +42,19 @@ const Pages = () => {
     return (
         <Paged>
              {
-          count <= 1 ? null : <ButtonPage onClick={() => dispatch(prevPage())}>
-           <i class="fas fa-chevron-left"></i> BACK
-        </ButtonPage>
-          
-      }
-      <NumberPage>{count}</NumberPage>
-      
-      {count >= 6 ? null : <ButtonPage onClick={() => dispatch(nextPage())}>
-        NEXT <i className="fas fa-chevron-right"></i>
-      </ButtonPage>}
-      
+              count <= 1 ? null : 
+              <ButtonPage onClick={() => dispatch(prevPage())}>
+                  <i class="fas fa-chevron-left"></i>
+              </ButtonPage>
+              }
+              <NumberPage>{count}</NumberPage>
+              
+              {
+              count >= 6 ? null : 
+              <ButtonPage onClick={() => dispatch(nextPage())}>
+                <i className="fas fa-arrow-right"></i>
+              </ButtonPage>
+              } 
         </Paged>
     )
 }
